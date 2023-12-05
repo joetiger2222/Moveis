@@ -1,0 +1,24 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<div style="width:100%;display:flex;flex-direction:column;align-items:center">
+    <div style="width:90%;max-width:800px">
+        <h1 class="bg-info text-white" style="width:100%;padding-left:10px">@Model.Name</h1>
+        <div style="display:flex;width:100%;column-gap:50px">
+            <img src="@Model.ImageURL" style="width:30%" />
+            <div style="display:flex;flex-direction:column;width:60%;row-gap:20px">
+                <h1>@Model.Name</h1>
+                <p>@Model.Description</p>
+                <h5>Cinema: <a style="font-weight:normal">@Model.Cinema.Name</a></h5>
+                <h5>Category: <span style="font-weight:normal">@Model.MovieCategory</span></h5>
+                <h5>Producer: <a style="font-weight:normal">@Model.Producer.FullName</a></h5>
+                <h5>Start Date: <span style="font-weight:normal">@Model.StartDate.ToString("dd MMM yy")</span></h5>
+                <h5>End Date: <span style="font-weight:normal">@Model.EndDate.ToString("dd MMM yy")</span></h5>
+            </div>
+        </div>
+    </div>
+    
+</div>

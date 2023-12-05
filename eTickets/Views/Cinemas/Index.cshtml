@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Cinema>
+
+@{
+    ViewData["Title"] = "List Of Cinemas";
+}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            <img class="rounded-circle" src="@item.Logo" style="max-width:150px" />
+                        </td>
+                        <td class="align-middle">@item.Name</td>
+                        <td class="align-middle">@item.Description</td>
+                        <td class="align-middle">
+                            @if ((bool)ViewData["IsWriter"])
+                            {
+                                <a class="btn btn-outline-primary" asp-action="Edit" asp-controller="Cinemas" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        <a asp-action="Create" class="btn btn-outline-success float-end" style="position:fixed;right:20px;bottom:20px;z-index:100">Add New</a>
